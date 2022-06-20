@@ -51,7 +51,7 @@ def play_video(file: str, webcam: bool = False):
             if success:
                 cv.imshow('Frame', frame)
                 output.write(frame)
-                cv.waitKey(30)
+                cv.waitKey(10)
             else:
                 print('Finished')
                 break
