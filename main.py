@@ -1,16 +1,24 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+import cv2 as cv
+from assets import assets
+import sys
 
 
-# Press the green button in the gutter to run the script.
+def main():
+    file = assets.cat_image
+    image = cv.imread(file, cv.IMREAD_GRAYSCALE)
+
+    if image is None:
+        sys.exit('Could not read the image')
+
+    cv.imshow('Cat Image', image)
+    key = cv.waitKey(0)
+
+    if key == ord('s'):
+        cv.imwrite('outputCat.png', image)
+
+    cv.destroyAllWindows()
+    sys.exit('Finished!')
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()

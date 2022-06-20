@@ -1,0 +1,1 @@
+cat_image = '/Users/southrussian/PycharmProjects/read-write-images/assets/cat.jpeg'
