@@ -64,27 +64,48 @@ import sys
 # if __name__ == '__main__':
 #     play_video(file=assets.cat_video)
 
-def resize_image(percent: float):
+# resize the image
+
+# def resize_image(percent: float):
+#     file = assets.cat_image
+#     image = cv.imread(file)
+#
+#     image_dimension = image.shape
+#     print('Dimensions:', image_dimension)
+#     height, width = image_dimension[:2]
+#
+#     new_height = int(height * percent)
+#     new_width = int(width * percent)
+#     new_dimension = (new_height, new_width)
+#
+#     resized = cv.resize(image, new_dimension, interpolation=cv.INTER_LINEAR)
+#
+#     print('New dimension:', resized.shape)
+#     cv.imshow('Resized image', resized)
+#     cv.waitKey(0)
+#
+#     cv.destroyAllWindows()
+#     sys.exit('Finished')
+#
+#
+# if __name__ == '__main__':
+#     resize_image(0.1)
+
+# crop the image
+
+def crop_image():
     file = assets.cat_image
     image = cv.imread(file)
 
-    image_dimension = image.shape
-    print('Dimensions:', image_dimension)
-    height, width = image_dimension[:2]
+    print('Dimensions:', image.shape)
+    print(image)
 
-    new_height = int(height * percent)
-    new_width = int(width * percent)
-    new_dimension = (new_height, new_width)
-
-    resized = cv.resize(image, new_dimension, interpolation=cv.INTER_LINEAR)
-
-    print('New dimension:', resized.shape)
-    cv.imshow('Resized image', resized)
+    cropped_image = image[150:450, 200:450]  # y - x
+    cv.imshow('Cropped image', cropped_image)
     cv.waitKey(0)
-
     cv.destroyAllWindows()
     sys.exit('Finished')
 
 
 if __name__ == '__main__':
-    resize_image(0.1)
+    crop_image()
